@@ -25,8 +25,34 @@ public class Quiz {
 		return sum;
 	}
 	
+//	Your task is to complete takeQuiz(). This method should:
+//
+//		Iterate through all of the questions:
+//
+//		Display the prompt for each question
+//
+//		Request a user answer for each question (using getUserAnswer())
+//
+//		Check the answer that the user gave
+//
+//		Display the points earned for each question
+//
+//		Once all questions have been answered, it should display the points earned as well as the total number of points available (from getTotalPoints())
+//	
 	public void takeQuiz() {
-		//FIXME
+		int count = 0;
+		for (int i = 0; i< questions.length; i++) {
+			System.out.print(i+". ");
+			questions[i].displayPrompt();
+			String userA = getUserAnswer();
+			
+			count += questions[i].checkAnswer(userA);
+			System.out.println("Question "+ i + ": "+ questions[i].checkAnswer(userA) + "/" + questions[i].getPoints());
+			
+		}
+		
+		System.out.println("Total Points: "+ count + "/" + this.getTotalPoints());
+		
 	}
 	
 	public static void main(String[] args) {
